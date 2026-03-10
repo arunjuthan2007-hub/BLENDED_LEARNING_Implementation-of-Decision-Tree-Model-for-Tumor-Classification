@@ -34,13 +34,14 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df=pd.read_csv('tumor.csv')
+
+data = pd.read_csv('tumor.csv')
+
 print(data.head())
 print(data.columns)
 
-
-X = data.drop(columns=['id', 'diagnosis'])
-y = data['diagnosis'] 
+X = data.drop(columns=['Class'])  
+y = data['Class'] 
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
@@ -52,9 +53,10 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 
-
 accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
+print("\nName: Arunjuthan.M.A")
+print("Reg No: 212225230020")
+print("\nAccuracy:", accuracy)
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
 
@@ -64,7 +66,6 @@ plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 plt.show()
-
 ```
 
 ## Output:
